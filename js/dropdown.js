@@ -1,4 +1,3 @@
-// For a collapse / accordion element
 // Note: Fussy linting, don't use end lines
 
 import $ from 'jquery'
