@@ -1,0 +1,227 @@
+// 
+// Utilities
+//
+// Uses a tailwindcss approach
+// Has ! at the start of utilities
+// Note \ is an escape character in CSS. Use !utility-name / md:!utility-name in code.
+
+// Display
+.\!inline-block { display: inline-block !important; }
+
+// Font colours
+.\!white { color: white !important; }
+.\!gray-300 { color: $gray-300 !important; }
+.\!steel-gray-dark { color: $steel-gray-dark !important; }
+.\!gray-400 { color: $gray-400 !important; }
+
+// Font weights
+.\!font-normal { font-weight: 400 !important; }
+.\!font-medium { font-weight: 500 !important; }
+.\!font-bold { font-weight: 700 !important; }
+
+// Borders
+.\!border { border-width: 1px; }
+
+// Background colours
+.\!bg-teal-extra-light { background-color: $teal-extra-light !important; }
+
+// Position
+.\!relative { position: relative !important; }
+.\!float-right { float: right !important; }
+
+// Special margins
+.\!mb-xxs { margin-bottom: $space-xxs !important; }
+
+// Sizes
+.\!max-w-50\% { max-width: 50%; }
+.\!max-w-100\% { max-width: 100%; }
+
+.\!max-h-xl { max-height: px-to-rem(200); }
+
+// Column based max width
+.\!max-w-1-cols { max-width: $container-max-width / 12 * 1; }
+.\!max-w-2-cols { max-width: $container-max-width / 12 * 2; }
+.\!max-w-3-cols { max-width: $container-max-width / 12 * 3; }
+.\!max-w-4-cols { max-width: $container-max-width / 12 * 4; }
+.\!max-w-5-cols { max-width: $container-max-width / 12 * 5; }
+.\!max-w-6-cols { max-width: $container-max-width / 12 * 6; }
+.\!max-w-7-cols { max-width: $container-max-width / 12 * 7; }
+.\!max-w-8-cols { max-width: $container-max-width / 12 * 8; }
+.\!max-w-9-cols { max-width: $container-max-width / 12 * 9; }
+.\!max-w-10-cols { max-width: $container-max-width / 12 * 10; }
+.\!max-w-11-cols { max-width: $container-max-width / 12 * 11; }
+.\!max-w-12-cols { max-width: $container-max-width / 12 * 12; }
+
+
+//
+// Responsive utilities
+//
+// Generates single property utilities classes for all media sizes
+//
+
+@mixin responsiveUtils($prefix: "") {
+  // Add your responsive utilities here.
+  // #{$prefix} after the `.` but before your class name will automatically add
+  // properly prefixed responsive classes.
+  // eg. class name `.#{$prefix}\!block` generates `.\!block`, `.sm:\!block`, `.md:\!block` etc.
+
+  // Display
+  .#{$prefix}\!block { display: block !important; }
+  .#{$prefix}\!inline { display: inline !important; }
+  .#{$prefix}\!flex { display: flex !important; }
+  .#{$prefix}\!inline-flex { display: inline-flex !important; }
+  .#{$prefix}\!none { display: none !important; }
+
+  // Flex
+  .#{$prefix}\!f-wrap { flex-wrap: wrap !important; }
+  .#{$prefix}\!f-no-wrap { flex-wrap: nowrap !important; }
+
+  .#{$prefix}\!f-row { flex-direction: row !important; }
+  .#{$prefix}\!f-col { flex-direction: column !important; }
+  .#{$prefix}\!f-justify-end { justify-content: flex-end !important; }
+  .#{$prefix}\!f-justify-between { justify-content: space-between !important; }
+  .#{$prefix}\!f-justify-center { justify-content: center !important; }
+  .#{$prefix}\!f-items-center { align-items: center !important; }
+  .#{$prefix}\!f-items-stretch { align-items: stretch !important; }
+  .#{$prefix}\!f-items-start { align-items: flex-start !important; }
+  .#{$prefix}\!f-items-end { align-items: flex-end !important; }
+
+  .#{$prefix}\!f-basis-auto { flex-basis: auto !important; }
+  .#{$prefix}\!f-grow-0 { flex-grow: 0 !important; }
+  .#{$prefix}\!f-grow-1 { flex-grow: 1 !important; }
+  .#{$prefix}\!f-shrink-0 { flex-shrink: 0 !important; }
+  .#{$prefix}\!f-order-0 { order: 0 !important; }
+  .#{$prefix}\!f-order-1 { order: 1 !important; }
+  .#{$prefix}\!f-self-center { align-self: center !important; }
+  .#{$prefix}\!f-self-end { align-self: flex-end !important; }
+
+  // Font
+  .#{$prefix}\!no-underline { text-decoration: none !important; }
+  
+  .#{$prefix}\!text-xxs { font-size: px-to-rem(10) !important; }
+  .#{$prefix}\!text-xs { font-size: px-to-rem(12) !important; }
+  .#{$prefix}\!text-sm { font-size: px-to-rem(14) !important; }
+  .#{$prefix}\!text-md { font-size: px-to-rem(16) !important; }
+  .#{$prefix}\!text-lg { font-size: px-to-rem(18) !important; }
+  .#{$prefix}\!text-xl { font-size: px-to-rem(20) !important; }
+  .#{$prefix}\!text-xxl { font-size: px-to-rem(24) !important; }
+
+  // Text
+  .#{$prefix}\!text-left { text-align: left !important; }
+  .#{$prefix}\!text-center { text-align: center !important; }
+  .#{$prefix}\!text-right { text-align: right !important; }
+  .#{$prefix}\!uppercase { text-transform: h !important; }
+  .#{$prefix}\!text-green { color: $green !important; }
+  .#{$prefix}\!text-red { color: $red !important; }
+
+  // Width
+  .#{$prefix}\!w-auto { width: auto !important; }
+  .#{$prefix}\!w-33\% { width: 33.333% !important; }
+  .#{$prefix}\!w-50\% { width: 50% !important; }
+  .#{$prefix}\!w-100\% { width: 100% !important; }
+
+  // Borders
+  .#{$prefix}\!border-l-0 { border-left-width: 0 !important; }
+
+  // Transform
+  .#{$prefix}\!rotate-90 {  transform: rotate(90deg) !important; }
+  .#{$prefix}\!-rotate-90 { transform: rotate(-90deg) !important; }
+
+  // Whitespace
+  .#{$prefix}\!whitespace-no-wrap { white-space: nowrap !important; }
+
+  //// Spacing ////
+
+  // Padding
+  .#{$prefix}\!p-0 { padding: 0 !important; }
+  .#{$prefix}\!p-xs { padding: $space-xs !important; }
+  .#{$prefix}\!px-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .#{$prefix}\!px-xs {
+    padding-left: $space-xs !important;
+    padding-right: $space-xs !important;
+  }
+  .#{$prefix}\!py-xs {
+    padding-top: $space-xs !important;
+    padding-bottom: $space-xs !important;
+  }
+  .#{$prefix}\!py-sm {
+    padding-top: $space-sm !important;
+    padding-bottom: $space-sm !important;
+  }
+  .#{$prefix}\!pt-0 { padding-top: 0 !important; }
+  .#{$prefix}\!pb-0 { padding-bottom: 0 !important; }
+  .#{$prefix}\!pb-xs { padding-bottom: $space-xs !important; }
+  .#{$prefix}\!pb-sm { padding-bottom: $space-sm !important; }
+  .#{$prefix}\!pl-0 { padding-left: 0!important; }
+  .#{$prefix}\!pl-sm { padding-left: $space-sm !important; }
+  .#{$prefix}\!pr-xs { padding-right: $space-xs !important; }
+
+  // Margins
+  .#{$prefix}\!mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .#{$prefix}\!mx-xs {
+    margin-left: $space-xs !important;
+    margin-right: $space-xs !important;
+  }
+  .#{$prefix}\!mx-sm {
+    margin-left: $space-sm !important;
+    margin-right: $space-sm !important;
+  }
+  .#{$prefix}\!mx-md {
+    margin-left: $space-md !important;
+    margin-right: $space-md !important;
+  }
+  .#{$prefix}\!mx-lg {
+    margin-left: $space-lg !important;
+    margin-right: $space-lg !important;
+  }
+  .#{$prefix}\!my-xs {
+    margin-top: $space-xs !important;
+    margin-bottom: $space-xs !important;
+  }
+  .#{$prefix}\!my-sm {
+    margin-top: $space-sm !important;
+    margin-bottom: $space-sm !important;
+  }
+  .#{$prefix}\!my-md {
+    margin-top: $space-md !important;
+    margin-bottom: $space-md !important;
+  }
+
+  .#{$prefix}\!-mt-1 { margin-top: -1px !important; }
+  .#{$prefix}\!mt-xxs { margin-top: $space-xxs !important; }
+  .#{$prefix}\!mt-xs { margin-top: $space-xs !important; }
+  .#{$prefix}\!mt-sm { margin-top: $space-sm !important; }
+  .#{$prefix}\!mt-md { margin-top: $space-md !important; }
+  
+  .#{$prefix}\!mb-0 { margin-bottom: 0 !important; }
+  .#{$prefix}\!mb-xs { margin-bottom: $space-xs !important; }
+  .#{$prefix}\!mb-sm { margin-bottom: $space-sm !important; }
+  .#{$prefix}\!mb-md { margin-bottom: $space-md !important; }
+  .#{$prefix}\!mb-lg { margin-bottom: $space-md !important; }
+
+  .#{$prefix}\!-ml-1 { margin-left: -1px !important; }
+  .#{$prefix}\!ml-xs { margin-left: $space-xs !important; }
+  .#{$prefix}\!ml-sm { margin-left: $space-sm !important; }
+  .#{$prefix}\!ml-md { margin-left: $space-md !important; }
+
+  .#{$prefix}\!mr-xxs { margin-right: $space-xxs !important; }
+  .#{$prefix}\!mr-xs { margin-right: $space-xs !important; }
+  .#{$prefix}\!mr-sm { margin-right: $space-sm !important; }
+  .#{$prefix}\!mr-md { margin-right: $space-md !important; }
+}
+
+// Base utilities
+@include responsiveUtils();
+
+// Make responsive utilities
+@each $prefix, $breakpoint in $breakpoints {
+  @media screen and (min-width: $breakpoint) {
+    @include responsiveUtils('#{$prefix}\\:');
+  }
+}
