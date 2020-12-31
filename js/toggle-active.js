@@ -1,7 +1,7 @@
 $(document).ready(() => {
   function toggleActiveState () {
-    var target = $(this).data('jsToggleActiveTrigger');
-    var activeClass = 'active';
+    let target = $(this).data('jsToggleActiveTrigger');
+    let activeClass = 'active';
 
     if (target) {
       $('[data-js-toggle-active-target=' + target + ']').toggleClass(activeClass);
